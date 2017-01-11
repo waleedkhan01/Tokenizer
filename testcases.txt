@@ -1,0 +1,61 @@
+input :
+“0x02 0.3e10 514z 11”
+
+output:
+hex: 0x02
+float: 0.3e10
+decimal: 514
+ERROR, Not A Token: [0x7A]
+decimal: 11
+
+————————————
+
+input:
+“0.232 1234 0x9 09”
+
+output:
+float: 0.232
+decimal: 1234
+hex: 0x9
+zero: 0
+decimal: 9
+
+———————————— 
+input:
+"0.n9 8.4z 070"
+
+output:
+decimal: 0
+ERROR, Not A Token: [0x2E]
+ERROR, Not A Token: [0x6E]
+decimal: 9
+float: 8.4
+ERROR, Not A Token: [0x7A]
+octal: 070
+
+————————————
+
+input:
+"100. 100 0 05."
+
+output:
+decimal: 100
+ERROR, Not A Token: [0x2E]
+decimal: 100
+zero: 0
+octal: 05
+ERROR, Not A Token: [0x2E]
+
+————————————
+
+input:
+"abc 123 0x0a .2"
+
+output:
+ERROR, Not A Token: [0x61]
+ERROR, Not A Token: [0x62]
+ERROR, Not A Token: [0x63]
+decimal: 123
+hex: 0x0a
+ERROR, Not A Token: [0x2E]
+decimal: 2
